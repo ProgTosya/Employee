@@ -10,7 +10,6 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::whereNull('boss_id')
-            ->with('childrenEmployees')
             ->get();
         return response()->json([
             'success' => true,
